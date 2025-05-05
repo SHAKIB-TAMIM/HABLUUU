@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Grenade</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .dashboard {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .category {
+            margin-bottom: 30px;
+        }
+        
+        .category h2 {
+            color: #3498db;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .topic-button {
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .topic-button:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        #fact-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 5px solid #3498db;
+            min-height: 100px;
+        }
+        
+        #fact-box p {
+            margin: 5px 0;
+        }
+        
+        .fact-text {
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        
+        .remark-text {
+            font-style: italic;
+            color: #3498db;
+            margin-top: 10px !important;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Knowledge Grenade</h1>
+        
+        <div class="category">
+            <h2>Science & Nature</h2>
+            <div class="button-grid">
+                <button class="topic-button" onclick="displayFact('gold')">Gold (Au) in Chemistry</button>
+                <button class="topic-button" onclick="displayFact('octopus')">Octopus Facts</button>
+                <button class="topic-button" onclick="displayFact('jellyfish')">Immortal Jellyfish</button>
+                <button class="topic-button" onclick="displayFact('penguin')">Penguin Proposals</button>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h2>History & Culture</h2>
+            <div class="button-grid">
+                <button class="topic-button" onclick="displayFact('eiffel')">The Eiffel Tower</button>
+                <button class="topic-button" onclick="displayFact('viking')">Viking Sunstone</button>
+                <button class="topic-button" onclick="displayFact('coffee')">Coffee vs. Napoleon</button>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h2>Food & Fun</h2>
+            <div class="button-grid">
+                <button class="topic-button" onclick="displayFact('banana')">Bananas and Berries</button>
+                <button class="topic-button" onclick="displayFact('honey')">Honey's Durability</button>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h2>Space & Universe</h2>
+            <div class="button-grid">
+                <button class="topic-button" onclick="displayFact('moon')">Moon's Weight Loss</button>
+            </div>
+        </div>
+        
+        <div id="fact-box">
+            <p class="fact-text">Select a topic to display a fun fact!</p>
+            <p class="remark-text"></p>
+        </div>
+        
+        <div class="footer">
+            <p>Click any button to learn something interesting and witty!</p>
+        </div>
+    </div>
+
+    <script>
+        const facts = {
+            gold: {
+                fact: "Gold is so malleable that a single ounce can be stretched into a wire 50 miles long.",
+                remark: "That's like stretching my love for you from Dhaka to Chittagong... but gold still loses because it can't blush like you do!"
+            },
+            eiffel: {
+                fact: "The Eiffel Tower grows 6 inches taller in summer due to thermal expansion.",
+                remark: "Just like my admiration for you when you smile—expands uncontrollably."
+            },
+            octopus: {
+                fact: "Octopuses have three hearts and blue blood.",
+                remark: "If I were an octopus, all three hearts would still choose you. The blue blood? That's just me forgetting to breathe when you're around."
+            },
+            banana: {
+                fact: "Bananas are berries, but strawberries aren't (botanically).",
+                remark: "Life is full of surprises—just like how you're technically a 'berry' beautiful human. (See what I did there?)"
+            },
+            honey: {
+                fact: "Honey never spoils—edible even after 3000 years!",
+                remark: "Just like my childhood crush on you... eternally preserved."
+            },
+            penguin: {
+                fact: "Penguins propose with pebbles; females 'accept' by placing the pebble in their nest.",
+                remark: "If I were a penguin, I'd give you a diamond... but you'd probably throw it back because 'Hablu, pebbles are cuter!'"
+            },
+            moon: {
+                fact: "The Moon is slowly drifting away (1.5 inches/year).",
+                remark: "Unlike my chances with you—getting closer every day."
+            },
+            coffee: {
+                fact: "Coffee was banned in Sweden in 1746—the king blamed it for rebellious ideas.",
+                remark: "If caffeine is illegal, then your smile should be too—too stimulating for my heart."
+            },
+            viking: {
+                fact: "Vikings used 'sunstones' to navigate cloudy seas (calcite crystals polarized light).",
+                remark: "You're my sunstone—guiding me through life's cloudy days."
+            },
+            jellyfish: {
+                fact: "The 'immortal jellyfish' can revert to its juvenile form indefinitely.",
+                remark: "If I could live forever, I'd still spend all my lifetimes annoying you with bad jokes."
+            }
+        };
+
+        function displayFact(topic) {
+            const factBox = document.getElementById('fact-box');
+            const factText = factBox.querySelector('.fact-text');
+            const remarkText = factBox.querySelector('.remark-text');
+            
+            factText.textContent = facts[topic].fact;
+            remarkText.textContent = facts[topic].remark;
+        }
+    </script>
+</body>
+</html>
