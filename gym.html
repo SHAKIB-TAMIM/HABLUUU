@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Gym Buddy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background-color: #1abc9c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        .content {
+            text-align: center;
+            margin: 40px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .motivational {
+            background-color: #f39c12;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1abc9c;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #ecf0f1;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .facebook-post {
+            background-color: #e9f7fa;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Find a Gym Buddy</h1>
+    </header>
+
+    <div class="motivational">
+        <p>"A journey of a thousand miles begins with a single step. Don't worry, Hablu, you'll be stronger than ever!"</p>
+    </div>
+
+    <div class="content">
+        <button onclick="postOnFacebook()">Post on Facebook</button>
+    </div>
+
+     <!-- Display Facebook Post -->
+     <div class="content">
+        <div id="facebook-post" class="facebook-post" style="display: none;">
+            <p><strong>Hablu's Facebook Story:</strong></p>
+            <p id="post-content"></p>
+        </div>
+    </div>
+
+    <div class="content">
+        <p>Hablu is ready to start working out, but the thought of stepping into the gym alone fills him with apprehension. 
+        He's looking for a gym buddy to provide the encouragement and accountability he needs!</p>
+
+        <button onclick="fetchNearbyGyms()">Find Nearby Gyms</button>
+        <button onclick="fetchNearbyGymBros()">Find Nearby Gym Buddies</button>
+    </div>
+
+
+    <!-- Table for Nearby Gyms -->
+    <div class="content">
+        <h2>Nearby Gyms</h2>
+        <table id="gyms-table">
+            <thead>
+                <tr>
+                    <th>Gym Name</th>
+                    <th>Location</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Table for Nearby Gym Bros -->
+    <div class="content">
+        <h2>Nearby Gym Buddies</h2>
+        <table id="gymbros-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Interests</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+   
+
+    <!-- Display Facebook Post -->
+    <div class="content">
+        <div id="facebook-post" class="facebook-post" style="display: none;">
+            <p><strong>Hablu's Facebook Story:</strong></p>
+            <p id="post-content"></p>
+        </div>
+    </div>
+
+    <script>
+        // Simulate fetching data from APIs for Gyms
+        function fetchNearbyGyms() {
+            const gymData = [
+                { name: "Fit Life Gym", location: "Downtown", contact: "123-456-7890" },
+                { name: "Powerhouse Gym", location: "Main Street", contact: "987-654-3210" },
+                { name: "Muscle Factory", location: "City Center", contact: "456-789-0123" }
+            ];
+
+            const tableBody = document.getElementById('gyms-table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; 
+
+            gymData.forEach(gym => {
+                const row = tableBody.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                cell1.innerHTML = gym.name;
+                cell2.innerHTML = gym.location;
+                cell3.innerHTML = gym.contact;
+            });
+        }
+
+      
+        function fetchNearbyGymBros() {
+            const gymBrosData = [
+                { name: "Irfanul", location: "Downtown", interests: "Strength Training, Cardio" },
+                { name: "Islam ", location: "Main Street", interests: "HIIT, Yoga" },
+                { name: "Ruhaan", location: "City Center", interests: "CrossFit, Weightlifting" }
+            ];
+
+            const tableBody = document.getElementById('gymbros-table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; 
+
+            gymBrosData.forEach(gymBro => {
+                const row = tableBody.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                cell1.innerHTML = gymBro.name;
+                cell2.innerHTML = gymBro.location;
+                cell3.innerHTML = gymBro.interests;
+            });
+        }
+
+        
+        function postOnFacebook() {
+            const postContent = "একলা আমি কে বলেছে?দুঃখ  আবার কি?দুঃখের সাথে বন্ধুততা কবেই করেছি";
+            document.getElementById("post-content").innerText = postContent;
+            document.getElementById("facebook-post").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

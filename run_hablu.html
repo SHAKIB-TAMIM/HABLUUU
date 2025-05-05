@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Hablu, Run!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background-color: #1abc9c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        .content {
+            text-align: center;
+            margin: 40px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .motivational {
+            background-color: #f39c12;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1abc9c;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #ecf0f1;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Run Hablu, Run!</h1>
+    </header>
+
+    <div class="content">
+        <p>Hablu is preparing for an upcoming marathon but needs some motivation and details about nearby events to keep him on track!</p>
+        <p>Here's some information about the marathon events and the top participants from the provided API endpoint:</p>
+        <button onclick="fetchMarathonData()">Fetch Marathon Data</button>
+    </div>
+
+    <!-- Motivational Line -->
+    <div class="motivational">
+        <p>"The journey of a thousand miles begins with a single step. Keep going, Hablu!"</p>
+    </div>
+
+    <!-- Table for Marathon Events -->
+    <div class="content">
+        <h2>Upcoming Marathon Events</h2>
+        <table id="marathon-table">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Top Participants</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="content">
+        <p>Remember, your current weakness is only a stepping stone to greater strength. Embrace every small victory along the way.</p>
+    </div>
+
+    <script>
+        // Simulate fetching data from the API
+        function fetchMarathonData() {
+            // Mock data to simulate the response from the API endpoint
+            const marathonData = [
+                {
+                    eventName: "Campus Marathon 2025",
+                    date: "2025-06-15",
+                    location: "University Campus",
+                    topParticipants: "Maisha Tabassum, Jisan Hyder, shakib Tamim"
+                },
+                {
+                    eventName: "City Marathon 2025",
+                    date: "2025-07-20",
+                    location: "Downtown",
+                    topParticipants: "Mohammad Sakib, Fazle Sunny, Momtahin Piash"
+                },
+                {
+                    eventName: "Neighborhood Run 2025",
+                    date: "2025-08-01",
+                    location: "Green Park",
+                    topParticipants: "Taaqi, Tahsin Muntasir, Khaled"
+                }
+            ];
+
+            // Find the table body to populate the data
+            const tableBody = document.getElementById('marathon-table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            // Add new rows based on the mock data
+            marathonData.forEach(event => {
+                const row = tableBody.insertRow();
+
+                // Insert cells into each row
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                const cell4 = row.insertCell(3);
+
+                // Set cell content
+                cell1.innerHTML = event.eventName;
+                cell2.innerHTML = event.date;
+                cell3.innerHTML = event.location;
+                cell4.innerHTML = event.topParticipants;
+            });
+        }
+    </script>
+
+</body>
+</html>
