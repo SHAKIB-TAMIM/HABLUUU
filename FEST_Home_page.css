@@ -1,0 +1,71 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    color: #333;
+  }
+  
+  header {
+    background-color: #005a9c;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .subtitle {
+    font-style: italic;
+    font-size: 1.1em;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  .intro p {
+    line-height: 1.6;
+  }
+  
+  blockquote {
+    font-size: 1.2em;
+    background: #e0f7fa;
+    padding: 15px;
+    margin: 20px 0;
+    border-left: 5px solid #00796b;
+  }
+  
+  .missions h2 {
+    margin-top: 40px;
+  }
+  
+  .missions ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .missions li {
+    background: #eef2f7;
+    margin: 10px 0;
+    padding: 15px;
+    border-left: 5px solid #005a9c;
+    border-radius: 5px;
+  }
+  
+  .missions a {
+    text-decoration: none;
+    color: #005a9c;
+    font-weight: bold;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #e0e0e0;
+    font-size: 0.9em;
+    margin-top: 40px;
+  }
