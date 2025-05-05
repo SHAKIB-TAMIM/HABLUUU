@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress Better: Fashion Advice</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+            color: #333;
+        }
+        header {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+            margin: 40px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .content .tip {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .dresses {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .dress {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+        .dress img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .dress h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin: 20px 0;
+        }
+        .dress p {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+        .dress-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .dress-button:hover {
+            background-color: #2980b9;
+        }
+        .tip-button {
+            margin-top: 40px;
+            padding: 15px 30px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .tip-button:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dress Better: Fashion Advice</h1>
+    </header>
+
+    <div class="content">
+        <p>
+            Sokhina often teases Hablu about his collection of free T-shirts from various hackathons. It's time to update his wardrobe! 
+            Hablu wants fashion advice that fits his body type, suits his student budget, and helps him look sharp both socially and professionally.
+        </p>
+        <p class="tip">A good wardrobe makes a lasting first impression. Let's explore some options for both formal and casual styles!</p>
+    </div>
+
+    <div class="dresses">
+        <!-- Formal Dress -->
+        <div class="dress">
+            <img src="formal.jpg" alt="Formal Dress">
+            <h3>Formal Look</h3>
+            <p>Perfect for interviews, meetings, and professional events. A well-fitted suit from brands like Arong or Top Ten will elevate your appearance.</p>
+            <button class="dress-button" onclick="alert('Invest in a basic suit from Arong or Top Ten for a professional look.')">Learn More</button>
+        </div>
+
+        <!-- Casual Dress -->
+        <div class="dress">
+            <img src="casual.jpg" alt="Casual Dress">
+            <h3>Casual Look</h3>
+            <p>Great for daily wear and social outings. Pair a well-fitted tee and chinos from Top Ten or Arong for a stylish and comfortable look.</p>
+            <button class="dress-button" onclick="alert('Top Ten and Arong offer comfortable yet stylish options for everyday wear.')">Learn More</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <button class="tip-button" onclick="alert('Pro Tip: Always invest in quality basics from trusted brands like Arong and Top Ten for longevity and versatility!')">Fashion Tip</button>
+    </div>
+
+</body>
+</html>
