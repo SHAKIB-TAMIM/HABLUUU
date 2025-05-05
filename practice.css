@@ -1,0 +1,196 @@
+/* Color Variables - Blue/White-Blue Theme */
+:root {
+    --primary-blue: #3A86FF;
+    --light-blue: #90E0EF;
+    --white-blue: #CAF0F8;
+    --dark-blue: #1A4D8F;
+    --accent-blue: #00B4D8;
+    --off-white: #F8F9FA;
+    --text-dark: #212529;
+    --text-light: #F8F9FA;
+  }
+  
+  /* Base Styles */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--off-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  /* Header Styles - Blue Gradient */
+  header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    color: var(--text-light);
+    text-align: center;
+    padding: 3rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-blue);
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .subtitle {
+    font-style: italic;
+    opacity: 0.9;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+    font-weight: 300;
+  }
+  
+  /* Main Content Styles */
+  main {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  
+  .intro {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
+    border-top: 4px solid var(--accent-blue);
+  }
+  
+  blockquote {
+    border-left: 4px solid var(--accent-blue);
+    padding: 1.8rem;
+    margin: 2rem 0;
+    font-style: italic;
+    background: rgba(58, 134, 255, 0.05);
+    border-radius: 0 10px 10px 0;
+    position: relative;
+  }
+  
+  blockquote::before {
+    content: '"';
+    position: absolute;
+    left: 10px;
+    top: -15px;
+    font-size: 4rem;
+    color: rgba(58, 134, 255, 0.1);
+    font-family: Georgia, serif;
+  }
+  
+  /* Missions Grid */
+  .missions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  
+  .mission-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .mission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    background: var(--white-blue);
+    border-color: var(--light-blue);
+  }
+  
+  .mission-card h3 {
+    margin-top: 0;
+    color: var(--dark-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .mission-card h3::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent-blue);
+    transition: width 0.3s;
+  }
+  
+  .mission-card:hover h3 {
+    color: var(--primary-blue);
+  }
+  
+  .mission-card:hover h3::after {
+    width: 100%;
+  }
+  
+  .mission-card a {
+    text-decoration: none;
+    color: var(--text-dark);
+    display: block;
+    transition: color 0.3s;
+  }
+  
+  .mission-card:hover a {
+    color: var(--dark-blue);
+  }
+  
+  /* Footer Styles */
+  footer {
+    text-align: center;
+    padding: 3rem;
+    background: var(--dark-blue);
+    color: var(--text-light);
+    margin-top: 5rem;
+    position: relative;
+  }
+  
+  footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--light-blue));
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    
+    .missions {
+      grid-template-columns: 1fr;
+    }
+    
+    .intro {
+      padding: 1.8rem;
+    }
+    
+    blockquote {
+      padding: 1.5rem;
+    }
+  }
