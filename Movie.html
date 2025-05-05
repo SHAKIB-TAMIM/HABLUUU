@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Movie</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background-color: #2d2b2b ;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+            margin: 40px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .motivational {
+            background-color: #658ba4;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        .movie-suggestions {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .movie {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .movie:hover {
+            transform: scale(1.05);
+        }
+        .movie img {
+            width: 100%;
+            border-radius: 10px;
+            height: 50%;
+        }
+        .movie h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .movie p {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pick a Movie, Hablu!</h1>
+    </header>
+
+    <div class="content">
+        <p>After a long study session, Hablu is looking for an uplifting film to watch. Since he’s a big fan of Breaking Bad, he wants something with a similar vibe: exciting, thought-provoking, and leaving him with a sense of joy and inspiration.</p>
+        <p>Let’s explore some movie suggestions available on Netflix that match his mood!</p>
+    </div>
+
+    <div class="motivational">
+        <p>"Movies that leave you inspired and uplifted are the perfect way to recharge after a long day of hard work!"</p>
+    </div>
+
+    <div class="movie-suggestions">
+        <!-- Movie Suggestions -->
+        <div class="movie" onclick="alert('You selected: Breaking Bad')">
+            <img src="breaking_bad.jpg" alt="Breaking Bad">
+            <h3>Breaking Bad</h3>
+            <p>A chemistry teacher turned drug kingpin. Intense, gripping, and deeply inspiring!</p>
+        </div>
+
+        <div class="movie" onclick="alert('You selected: Ozark')">
+            <img src="ozark.jpg" alt="Ozark">
+            <h3>Ozark</h3>
+            <p>A financial planner turned money launderer. A thrilling series with moments of hope.</p>
+        </div>
+
+        <div class="movie" onclick="alert('You selected: Narcos')">
+            <img src="Narcos.jpg" alt="Narcos">
+            <h3>Narcos</h3>
+            <p>The rise and fall of the world's most infamous drug lords. Full of tension and drama!</p>
+        </div>
+
+        <div class="movie" onclick="alert('You selected: The Social Network')">
+            <img src="The_social_network.jpg" alt="The Social Network">
+            <h3>The Social Network</h3>
+            <p>The inspiring story behind Facebook’s rise. A captivating tale of ambition and innovation.</p>
+        </div>
+
+        <div class="movie" onclick="alert('You selected: Money Heist')">
+            <img src="Money_heist.jpg" alt="Money Heist">
+            <h3>Money Heist</h3>
+            <p>A group of criminals plan the biggest heist in history. Full of twists, emotions, and inspiration.</p>
+        </div>
+
+        <div class="movie" onclick="alert('You selected: The Pursuit of Happyness')">
+            <img src="pursuit.jpg" alt="The Pursuit of Happyness">
+            <h3>The Pursuit of Happyness</h3>
+            <p>An uplifting story of struggle, perseverance, and the will to succeed against all odds.</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <button onclick="alert('Enjoy your movie time, Hablu!')">Start Watching Now</button>
+    </div>
+
+</body>
+</html>
