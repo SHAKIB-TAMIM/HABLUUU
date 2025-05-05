@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Study Scheduler</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background-color: #1abc9c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+            margin: 40px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .study-session {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        input[type="time"] {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .study-tips {
+            background-color:  #2c3e50;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        .available-time {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        .friend-time {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+        }
+        .tip-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .tip-table, th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th, td {
+            padding: 10px;
+        }
+        th {
+            background-color: #3498db;
+            color: rgb(246, 233, 233);
+        }
+        tr:nth-child(even) {
+            background-color: #3498db;
+        }
+        .chart {
+            margin-top: 30px;
+            width: 100%;
+            height: 30px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .chart-fill {
+            height: 100%;
+            background-color: #2ecc71;
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Group Study Scheduler</h1>
+    </header>
+
+    <div class="content">
+        <p>Hablu has always wanted to study with his friends, but balancing study and socializing can be difficult. Let’s find a common time for everyone to meet and study effectively!</p>
+    </div>
+
+    <!-- Study Session Form -->
+    <div class="study-session">
+        <h2>Set Your Available Time Slots</h2>
+        <p>Enter your free time slots below to find a common study time with your friends.</p>
+
+        <div class="friend-time">
+            <p><strong>Friend 1 (Hablu)</strong></p>
+            <label for="friend1-time">Select time slot:</label>
+            <input type="time" id="friend1-time">
+        </div>
+
+        <div class="friend-time">
+            <p><strong>Friend 2</strong></p>
+            <label for="friend2-time">Select time slot:</label>
+            <input type="time" id="friend2-time">
+        </div>
+
+        <div class="friend-time">
+            <p><strong>Friend 3</strong></p>
+            <label for="friend3-time">Select time slot:</label>
+            <input type="time" id="friend3-time">
+        </div>
+
+        <button onclick="findCommonTime()">Find Common Study Time</button>
+
+        <div id="common-time" class="available-time" style="display:none;">
+            <p><strong>Common Study Time:</strong> <span id="study-time"></span></p>
+        </div>
+    </div>
+
+    <!-- Dynamic Study Tips Section -->
+    <div class="study-tips">
+        <h3>Study Tips</h3>
+        <p>Here are some tips to keep your study sessions focused and productive:</p>
+
+        <!-- Study Tips Table -->
+        <table class="tip-table">
+            <thead>
+                <tr>
+                    <th>Tip</th>
+                    <th>Completion Status</th>
+                </tr>
+            </thead>
+            <tbody id="tip-list">
+                <tr>
+                    <td>Set a clear agenda for each session.</td>
+                    <td><input type="checkbox" onchange="updateProgress()"></td>
+                </tr>
+                <tr>
+                    <td>Keep distractions away (no phones or social media).</td>
+                    <td><input type="checkbox" onchange="updateProgress()"></td>
+                </tr>
+                <tr>
+                    <td>Take short breaks every 45 minutes to stay fresh.</td>
+                    <td><input type="checkbox" onchange="updateProgress()"></td>
+                </tr>
+                <tr>
+                    <td>Assign roles (e.g., one person summarizes a topic).</td>
+                    <td><input type="checkbox" onchange="updateProgress()"></td>
+                </tr>
+                <tr>
+                    <td>Make study time fun by incorporating quizzes or games.</td>
+                    <td><input type="checkbox" onchange="updateProgress()"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Self-Rewarded Chart -->
+
+        <div class="chart">
+            <div class="chart-fill" id="progress-bar"></div>
+        </div>
+
+        <p id="progress-text">Progress: 0%</p>
+    </div>
+
+    <script>
+        function findCommonTime() {
+            // Get selected times from each friend
+            const friend1Time = document.getElementById('friend1-time').value;
+            const friend2Time = document.getElementById('friend2-time').value;
+            const friend3Time = document.getElementById('friend3-time').value;
+
+            // Check if all friends selected the same time
+            if (friend1Time === friend2Time && friend2Time === friend3Time && friend1Time !== "") {
+                // Display the common time if all times match
+                document.getElementById('study-time').textContent = friend1Time;
+                document.getElementById('common-time').style.display = 'block';
+            } else {
+                // If no common time, inform the user
+                alert("No common time found. Please make sure all friends select the same time.");
+            }
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.tip-table input[type="checkbox"]');
+            const totalTips = checkboxes.length;
+            const completedTips = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+
+            // Calculate progress as a percentage
+            const progress = (completedTips / totalTips) * 100;
+
+            // Update progress bar and text
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = progress $ {Math.round(progress)}$;
+        }
+    </script>
+
+</body>
+</html>
