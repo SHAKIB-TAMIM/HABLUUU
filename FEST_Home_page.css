@@ -61,11 +61,23 @@ body {
     color: #005a9c;
     font-weight: bold;
   }
+
+  .missions li:hover {
+    background: linear-gradient(90deg, #cfe9f7, #eef2f7);
+    transform: translateY(-2px);
+  }
+
+  .missions a {
+    text-decoration: none;
+    color: #005a9c;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
   
   footer {
     text-align: center;
     padding: 20px;
-    background: #e0e0e0;
+    background: #b4a9a9;
     font-size: 0.9em;
     margin-top: 40px;
   }
